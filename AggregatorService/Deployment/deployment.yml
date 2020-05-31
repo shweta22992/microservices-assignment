@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aggregatordeployment
+spec:
+  selector:
+   matchLabels: 
+    app: sample-aggregator
+  replicas: 2
+  template:
+   metadata:
+    labels: 
+     app: sample-aggregator
+   spec:
+    containers:
+     - name: sample-image-aggregator
+       image: docker.io/shwetamittal/microservices-assignment:aggregatorv3.0
+       ports:
+        - containerPort: 8080
+       imagePullPolicy: Always
