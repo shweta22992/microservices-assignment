@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: userservice
+spec:
+  type: ClusterIP
+  selector:
+   app: sample-user
+  ports:
+   - protocol: TCP
+     port: 8080   # port on which cluster is runnin (access application from here)
+     targetPort: 8080 # port given in deployment file on which application is running

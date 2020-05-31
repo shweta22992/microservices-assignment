@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userdeployment
+spec:
+  selector:
+   matchLabels: 
+    app: sample-user
+  replicas: 2
+  template:
+   metadata:
+    labels: 
+     app: sample-user
+   spec:
+    containers:
+     - name: sample-image-user
+       image: docker.io/shwetamittal/microservices-assignment:userv1.0
+       ports:
+        - containerPort: 8080
+       imagePullPolicy: Always
