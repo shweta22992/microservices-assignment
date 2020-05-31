@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderdeployment
+spec:
+  selector:
+   matchLabels: 
+    app: sample-order
+  replicas: 2
+  template:
+   metadata:
+    labels: 
+     app: sample-order
+   spec:
+    containers:
+     - name: sample-image-order 
+       image: docker.io/shwetamittal/microservices-assignment:ordersv1.0
+       ports:
+        - containerPort: 8080
+       imagePullPolicy: Always

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: orderservice
+spec:
+  type: ClusterIP
+  selector:
+   app: sample-order
+  ports:
+   - protocol: TCP
+     port: 8080 
+     targetPort: 8080
